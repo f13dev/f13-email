@@ -1,0 +1,69 @@
+.f13-form {
+    position: relative;
+}
+
+.f13-form label {
+    display: block;
+    cursor: pointer;
+}
+
+.f13-form input, .f13-form select, .f13-form textarea {
+    width: 100%;
+    border-radius: 0px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.f13-form textarea {
+    resize:vertical;
+    height: 150px;
+}
+
+.f13-form .f13-email-checkbox label, .f13-form .f13-email-checkbox input {
+    display: inline-block;
+    width: auto;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.f13-form .f13-email-checkbox {
+    padding: 10px 10px 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.f13-form .f13-email-checkbox legend {
+    margin-bottom: 0;
+    border:1px solid #ccc;
+    padding: 0px 10px;
+    background: #f6f6f6;
+}
+
+
+.f13-form input[type=date] {
+    cursor: text;
+}
+
+.f13-form select {
+    cursor: pointer;
+}
+
+.f13-field-error {
+    background: #ffeeee;
+}
+
+.f13-success, .f13-error {
+    text-align: center;
+    bordeR: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.f13-success {
+    background: #eeffee;
+}
+
+.f13-error {
+    background: #ffeeee;
+}
