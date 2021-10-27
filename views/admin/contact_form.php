@@ -11,7 +11,7 @@ class Contact_form
 
     public function page()
     {
-        $v = '<a class="f13_email_header_btn f13_email_new" href="'.admin_url('admin.php?page=f13-email&tab=contact-form-new').'" title="'.__('New contact form', 'f13-email').'"></a>';
+        $v = '<a class="f13_email_header_btn f13_email_new f13-email-ajax" data-target="f13-email-settings-container" data-action="'.admin_url('admin-ajax.php?action=f13-email-admin&tab=contact-form-new').'"  href="'.admin_url('admin.php?page=f13-email&tab=contact-form-new').'" title="'.__('New contact form', 'f13-email').'"></a>';
         $v .= '<h2>Contact forms</h2>';
 
         $v .= $this->msg;
@@ -30,8 +30,8 @@ class Contact_form
                     $v .= '<td>'.$form->fields.'</td>';
                     $v .= '<td>[contact-form id='.$form->id.']</td>';
                     $v .= '<td>';
-                        $v .= '<a href="'.admin_url('admin.php?page=f13-email&tab=contact-form-edit&id='.$form->id).'">Edit</a> | ';
-                        $v .= '<a href="'.admin_url('admin.php?page=f13-email&tab=contact-forms&sub=1&del='.$form->id).'" onclick="return confirm(\'Are you sure you want to delete this item?\');">Delete</a>';
+                        $v .= '<a class="f13-email-ajax" data-target="f13-email-settings-container" data-action="'.admin_url('admin-ajax.php?action=f13-email-admin&tab=contact-form-edit&id='.$form->id).'" href="'.admin_url('admin.php?page=f13-email&tab=contact-form-edit&id='.$form->id).'">Edit</a> | ';
+                        $v .= '<a class="f13-email-ajax" data-target="f13-email-settings-container" data-action="'.admin_url('admin-ajax.php?action=f13-email-admin&tab=contact-forms&sub=1&del='.$form->id).'" data-confirm="Are you sure you want to delete this item?" href="'.admin_url('admin.php?page=f13-email&tab=contact-forms&sub=1&del='.$form->id).'">Delete</a>';
                     $v .= '</td>';
                 $v .= '</tr>';
             }
@@ -42,7 +42,7 @@ class Contact_form
 
     public function edit_form()
     {
-        $v = '<a class="f13_email_header_btn f13_email_close" href="'.admin_url('admin.php?page=f13-email&tab=contact-forms').'" title="'.__('Close (unsaved settings will be lost)', 'f13-email').'"></a>';
+        $v = '<a class="f13_email_header_btn f13_email_close f13-email-ajax" data-target="f13-email-settings-container" data-action="'.admin_url('admin-ajax.php?action=f13-email-admin&tab=contact-forms').'" href="'.admin_url('admin.php?page=f13-email&tab=contact-forms').'" title="'.__('Close (unsaved settings will be lost)', 'f13-email').'"></a>';
         $v .= '<h2>Edit contact form</h2>';
 
         $v .= $this->msg;
@@ -51,7 +51,8 @@ class Contact_form
             return $v;
         }
 
-        $v .= '<form method="post" action="'.admin_url('admin.php?page=f13-email&tab=contact-form-new').'">';
+        $v .= '<form data-action="'.admin_url('admin-ajax.php').'" data-target="f13-email-settings-container" class="f13-email-ajax-form" method="post" action="'.admin_url('admin.php?page=f13-email&tab=contact-form-new').'">';
+            $v .= '<input type="hidden" name="action" value="f13-email-admin">';
             $v .= '<input type="hidden" name="page" value="f13-email">';
             $v .= '<input type="hidden" name="tab" value="contact-form-edit">';
             $v .= '<input type="hidden" name="id" value="'.$this->data->id.'">';
@@ -107,7 +108,7 @@ class Contact_form
 
     public function new_form()
     {
-        $v = '<a class="f13_email_header_btn f13_email_close" href="'.admin_url('admin.php?page=f13-email&tab=contact-forms').'" title="'.__('Close (unsaved settings will be lost)', 'f13-email').'"></a>';
+        $v = '<a class="f13_email_header_btn f13_email_close f13-email-ajax" data-target="f13-email-settings-container" data-action="'.admin_url('admin-ajax.php?action=f13-email-admin&tab=contact-forms').'" href="'.admin_url('admin.php?page=f13-email&tab=contact-forms').'" title="'.__('Close (unsaved settings will be lost)', 'f13-email').'"></a>';
         $v .= '<h2>New contact form</h2>';
 
         $v .= $this->msg;
@@ -116,7 +117,8 @@ class Contact_form
             return $v;
         }
 
-        $v .= '<form method="post" action="'.admin_url('admin.php?page=f13-email&tab=contact-form-new').'">';
+        $v .= '<form data-action="'.admin_url('admin-ajax.php').'" data-target="f13-email-settings-container" class="f13-email-ajax-form" method="post" action="'.admin_url('admin.php?page=f13-email&tab=contact-form-new').'">';
+            $v .= '<input type="hidden" name="action" value="f13-email-admin">';
             $v .= '<input type="hidden" name="page" value="f13-email">';
             $v .= '<input type="hidden" name="tab" value="contact-form-new">';
             $v .= '<input type="hidden" name="submit" value="1">';

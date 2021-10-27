@@ -47,4 +47,9 @@ jQuery(document).ready(function($) {
             $(this).parent().parent().find('.f13-email-form-field-options').hide();
         }
     });
+
+    $(document).on('click', '.f13-email-body', function() {
+        $('#'+$(this).data('open')).show();
+        $(this).hide();
+    });
 });

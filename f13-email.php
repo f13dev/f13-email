@@ -20,6 +20,7 @@ if (!defined('F13_EMAIL_URL')) define('F13_EMAIL_URL', plugin_dir_url(__FILE__))
 global $wpdb;
 if (!defined('F13_EMAIL_CONTACT_FORM')) define('F13_EMAIL_CONTACT_FORM', $wpdb->base_prefix.'f13_email_contact_form');
 if (!defined('F13_EMAIL_CONTACT_FORM_FIELDS')) define('F13_EMAIL_CONTACT_FORM_FIELDS', $wpdb->base_prefix.'f13_email_contact_form_fields');
+if (!defined('F13_EMAIL_DB_LOGS')) define('F13_EMAIL_DB_LOGS', $wpdb->base_prefix.'f13_email_logs');
 
 register_activation_hook(__FILE__, array('\F13\Email\Plugin', 'install'));
 
@@ -32,7 +33,11 @@ class Plugin
         add_action('admin_enqueue_scripts', array($this, 'admin_enqueue') );
 
         $c = new Controllers\Control();
-        //$e = new Controllers\Email();
+        $e = new Controllers\Email();
+
+        if (defined('DOING_AJAX') && DOING_AJAX) {
+            $x = new Controllers\Ajax();
+        }
 
         if (is_admin()) {
             $a = new Controllers\Admin();
@@ -68,11 +73,13 @@ class Plugin
         //wp_enqueue_script( 'jquery-ui', 'https://code.jquery.com/ui/1.13.0/jquery-ui.js', array('jquery'));
         wp_enqueue_script( 'jquery-ui-sortable' );
         wp_enqueue_script( 'f13-email-admin', F13_EMAIL_URL.'js/f13-email-admin.js', array('jquery', 'jquery-ui-sortable'), F13_EMAIL['Version'] );
+        wp_enqueue_script( 'f13-email-ajax', F13_EMAIL_URL.'js/f13-email-ajax.js', array('jquery'), F13_EMAIL['Version'] );
     }
 
     public function enqueue()
     {
         wp_enqueue_style('f13-email', F13_EMAIL_URL.'css/f13-email.css', array(), F13_EMAIL['Version']);
+        wp_enqueue_script( 'f13-email-ajax', F13_EMAIL_URL.'js/f13-email-ajax.js', array('jquery'), F13_EMAIL['Version'] );
     }
 }
 

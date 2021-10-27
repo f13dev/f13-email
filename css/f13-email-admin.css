@@ -154,3 +154,29 @@
 .f13-success {
     background: #eeffee;
 }
+
+.f13-email-body-collapse {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 40vw;
+}
+
+.f13-email-body-expand {
+    display: none;
+    cursor: zoom-out
+}
+
+.f13-email-body-collapse {
+    cursor: zoom-in;
+}
+
+.f13-data-loading {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fffa;
+    z-index: 999;
+}

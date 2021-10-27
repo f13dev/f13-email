@@ -67,3 +67,14 @@
 .f13-error {
     background: #ffeeee;
 }
+
+
+.f13-data-loading {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fffa;
+    z-index: 999;
+}

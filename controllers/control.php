@@ -13,8 +13,14 @@ class Control
     {
         extract(shortcode_atts(array('id' => ''), $atts));
 
+        if (empty($id)) {
+            $id = filter_input($this->request_method, 'form');
+        }
+
         $m = new \F13\Email\Models\Contact_form();
         $data = $m->select_form($id);
+
+        $container = (defined('DOING_AJAX') && DOING_AJAX) ? false : true;
 
         $msg = '';
         $errors = array();
@@ -88,6 +94,7 @@ class Control
         }
 
         $v = new \F13\Email\Views\Contact_form(array(
+            'container' => $container,
             'data' => $data,
             'errors' => $errors,
             'msg' => $msg,

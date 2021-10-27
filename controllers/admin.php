@@ -38,6 +38,8 @@ class Admin
         $this->msg = '';
         $this->kill = false;
 
+        $container = (defined('DOING_AJAX') && DOING_AJAX ? false : true);
+
         $submit = filter_input($this->request_method, 'submit');
         $sub = filter_input($this->request_method, 'sub');
         if ($submit || $sub) {
@@ -70,11 +72,17 @@ class Admin
                 $data = $m->select_form($id);
                 break;
             case 'logs':
-                $data = array();
+                $page = (int) filter_input($this->request_method, 'p');
+                if ($page < 1) {
+                    $page = 1;
+                }
+                $m = new \F13\Email\Models\Logs();
+                $data = $m->select_email_logs($page);
                 break;
         }
 
         $v = new \F13\Email\Views\Admin\Admin(array(
+            'container' => $container,
             'data' => $data,
             'kill' => $this->kill,
             'msg' => $this->msg,

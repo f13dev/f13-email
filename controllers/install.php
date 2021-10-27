@@ -31,5 +31,15 @@ class Install
         ) ".$charset_collate.";";
 
         dbDelta($sql);
+
+        $sql = "CREATE TABLE ".F13_EMAIL_DB_LOGS." (
+            id INT(16) NOT NULL AUTO_INCREMENT,
+            address VARCHAR(256),
+            body TEXT,
+            sent DATETIME,
+            PRIMARY KEY (id)
+        ) ".$charset_collate.";";
+
+        dbDelta($sql);
     }
 }
