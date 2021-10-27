@@ -36,7 +36,7 @@ class Contact_form
                     $error = (array_key_exists($id, $this->errors)) ? 'f13-field-error' : '';
                     if ($field->type == 'text' || $field->type == 'number' || $field->type == 'email' || $field->type == 'date') {
                         $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
-                        $v .= '<input type="'.$field->type.'" name="'.$id.'" id="'.$id.'" value="'.esc_html(filter_input(INPUT_POST, $id)).'" class="'.$error.'">';
+                        $v .= '<input type="'.$field->type.'" name="'.$id.'" id="'.$id.'" value="'.esc_html(filter_input(INPUT_POST, $id)).'" class="'.$error.'" autocomplete="on">';
                     } else
                     if ($field->type == 'textarea') {
                         $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
@@ -44,7 +44,7 @@ class Contact_form
                     } else
                     if ($field->type == 'dropdown') {
                         $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
-                        $v .= '<select name="'.$id.'" id="'.$id.'" class="'.$error.'">';
+                        $v .= '<select name="'.$id.'" id="'.$id.'" class="'.$error.'" autocomplete="on">';
                             $v .= '<option></option>';
                             $options = explode('|', $field->options);
                             foreach ($options as $option) {
@@ -55,7 +55,7 @@ class Contact_form
                     } else
                     if ($field->type == 'checkbox') {
                         $v .= '<fieldset class="f13-email-checkbox '.$error.'">';
-                            $v .= '<input type="checkbox" name="'.$id.'" id="'.$id.'" '.(filter_input(INPUT_POST, $id) == $field->title ? 'checked="checked"' : '').' value="'.$field->title.'">';
+                            $v .= '<input type="checkbox" name="'.$id.'" id="'.$id.'" '.(filter_input(INPUT_POST, $id) == $field->title ? 'checked="checked"' : '').' value="'.$field->title.'" autocomplete="on">';
                             $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
                         $v .= '</fieldset>';
                     } else
@@ -68,7 +68,7 @@ class Contact_form
                             foreach ($options as $key => $option) {
                                 $option = esc_attr($option);
                                 $v .= '<div>';
-                                    $v .= '<input type="radio" name="'.$id.'" id="'.$id.'-'.$key.'" value="'.trim($option).'" '.(esc_attr(trim(filter_input(INPUT_POST, $id))) == trim($option) ? 'checked="checked"' : '' ).'>';
+                                    $v .= '<input type="radio" name="'.$id.'" id="'.$id.'-'.$key.'" value="'.trim($option).'" '.(esc_attr(trim(filter_input(INPUT_POST, $id))) == trim($option) ? 'checked="checked"' : '' ).' autocomplete="on">';
                                     $v .= '<label for="'.$id.'-'.$key.'">'.trim($option).'</label>';
                                 $v .= '</div>';
                             }

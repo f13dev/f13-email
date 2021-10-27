@@ -70,7 +70,7 @@ class Control
             }
 
             if (!empty($errors)) {
-                $msg = '<div class="f13-error" style="text-align: left; padding: 10px 20px;">';
+                $msg = '<div class="f13-error" style="text-align: left; padding: 10px 20px;" role="alert" aria-live="notice">';
                     $msg .= __('<strong>Error:</strong> the following fields require attention -', 'f13-email');
                     $msg .= '<ul style="margin-bottom: 0px;">';
                         foreach ($errors as $key => $value) {
@@ -81,16 +81,16 @@ class Control
             } else {
                 $headers = array('Content-Type: text/html; charset=UTF-8');
                 if (wp_mail( 'jv@f13dev.com', 'Contact from blog', $template, $headers )) {
-                    return '<div class="f13-success">'.trim(esc_attr($data->success)).'</div>';
+                    return '<div class="f13-success" role="alert" aria-live="notice">'.trim(esc_attr($data->success)).'</div>';
                 }
 
                 // Implement token system so refrshing doesn't resend email.
-                $msg = '<div class="f13-error">'.__('There was an error sending this message via email.', 'f13-email').'</div>';
+                $msg = '<div class="f13-error" role="alert" aria-live="notice">'.__('There was an error sending this message via email.', 'f13-email').'</div>';
             }
         }
 
         if (empty($data)) {
-            return '<div class="f13-error">'.__('Form ID not found.', 'f13-email').'</div>';
+            return '<div class="f13-error" role="alert" aria-live="notice">'.__('Form ID not found.', 'f13-email').'</div>';
         }
 
         $v = new \F13\Email\Views\Contact_form(array(
