@@ -21,7 +21,7 @@ class Contact_form
     public function form()
     {
         $v = '<div class="inner">';
-            $v .= '<p>'.$this->data->title.'</p>';
+//            $v .= '<p>'.$this->data->title.'</p>';
             $v .= $this->msg;
 
             $v .= '<form method="post" class="f13-form f13-email-ajax-form" data-action="'.admin_url('admin-ajax.php').'" data-target="f13-contact-form-'.$this->data->id.'">';
@@ -40,7 +40,7 @@ class Contact_form
                     } else
                     if ($field->type == 'textarea') {
                         $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
-                        $v .= '<textarea id="'.$id.'" name="'.$id.'" class="'.$error.'">'.esc_html(filter_input(INPUT_POST, $id)).'</textarea>';
+                        $v .= '<textarea id="'.$id.'" name="'.$id.'" class="'.$error.'">'.esc_attr(filter_input(INPUT_POST, $id)).'</textarea>';
                     } else
                     if ($field->type == 'dropdown') {
                         $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
@@ -54,12 +54,19 @@ class Contact_form
                         $v .= '</select>';
                     } else
                     if ($field->type == 'checkbox') {
+//                        $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
                         $v .= '<fieldset class="f13-email-checkbox '.$error.'">';
+//                            if (!empty($field->title)) {
+                                $v .= '<legend style="display: none">'.esc_attr($field->title).$required.'</legend>';
+//                            }
+//                        $v .= '<div class="f13-email-checkbox">';
                             $v .= '<input type="checkbox" name="'.$id.'" id="'.$id.'" '.(filter_input(INPUT_POST, $id) == $field->title ? 'checked="checked"' : '').' value="'.$field->title.'" autocomplete="on">';
                             $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
+//                        $v .= '</div>';
                         $v .= '</fieldset>';
                     } else
                     if ($field->type == 'radio') {
+//                        $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
                         $v .= '<fieldset class="f13-email-checkbox '.$error.'">';
                             if (!empty($field->title)) {
                                 $v .= '<legend>'.esc_attr($field->title).$required.'</legend>';
@@ -75,6 +82,8 @@ class Contact_form
                         $v .= '</fieldset>';
                     }
                 }
+
+                $v .= apply_filters('f13_recaptcha_add', '');
 
                 $v .= '<input type="submit" value="Submit">';
 

@@ -3,180 +3,31 @@
 .f13-email-tabs li a { padding: 20px; border-right: 1px solid #ccc; display: inline-block; min-width: 100px; text-align: center; text-decoration: none; font-size: 16px; }
 .f13-email-tabs li a.selected { padding: 20px 20px 15px; border-bottom: 5px solid #ccc; }
 .f13-email-tabs li a:hover { background: #f6f6f6; }
-
 .f13-email-settings-container { position: relative; margin-top: 20px; padding: 0px 20px; border: 1px solid #ccc; background: #fff; }
-.f13_email_smtp_setting {
-    background: #f6f6f6;
-    border: 1px solid #ccc;
-    border-top: 0;
-    border-bottom: 0;
-}
-
-.f13_email_smtp_setting_first {
-    border-top: 1px solid #ccc;
-}
-
-.f13_email_smtp_setting_last {
-    border-bottom: 1px solid #ccc;
-}
-
-.f13_email_smtp_setting th {
-    padding-left: 20px;
-}
-
-.f13_email_smtp_setting td {
-    padding-right: 20px;
-}
-
-.f13_email_header_btn {
-    float: right;
-    font-size: 24px;
-    text-decoration: none;
-    margin-top: 17px;
-}
-
-.f13_email_new:before {
-    content: "\f10f";
-    font-family: "dashicons";
-}
-
-.f13_email_close:before {
-    font-family: "dashicons";
-    content: "\f153";
-}
-
-.f13-email-remove-field:before {
-    font-family: "dashicons";
-    content: "\f153";
-    float: right;
-    font-size: 20px;
-    position: relative;
-    top: 9px;
-    cursor: pointer;
-}
-
-.f13-email-move-field:before {
-    font-family: "dashicons";
-    content: "\f156";
-    float: right;
-    font-size: 20px;
-    position: relative;
-    top: 9px;
-    margin-right:20px;
-    cursor: grab;
-}
-
-.f13-email-add-field {
-    cursor: pointer;
-    display: block;
-    width: calc(100% - 22px);
-    margin-top: 10px;
-    padding: 10px;
-    background: #f6f6f6;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-
-.f13-email-add-field:hover {
-    border: 1px solid #222;
-}
-
-.f13-email-remove-field:hover {
-    color: #990000;
-}
-
-.f13-email-move-field:hover {
-    color: #000099;
-}
-
-.f13-email-form-field-options {
-    /*
-    padding: 10px;
-    background: #f6f6f6;
-    border: 1px solid #ccc;
-    */
-}
-
-.f13-email-form-field {
-    padding-bottom: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
-    background: #fff;
-}
-
-.f13-email-add-option {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    background: #fff;
-    cursor: pointer;
-}
-
-.f13-email-add-option:hover {
-    border: 1px solid #222;
-}
-
-
-.f13-email-form-fields {
-    border:1px solid #ccc;
-    background: #f6f6f6;
-    padding: 10px 10px 0;
-}
-
-.f13-email-settings-container input, .f13-email-settings-container select{
-    border-radius:0px;
-    padding: 3px;
-    box-sizing: border-box;
-}
-
-.f13-email-form-field label {
-    margin-bottom: 5px;
-    display: inline-block;
-}
-
-.f13-error, .f13-success {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
-    font-weight: bold;
-    width: 95%;
-    margin: auto;
-    margin-bottom: 10px;
-}
-
-.f13-error {
-    background: #ffeeee;
-}
-
-.f13-success {
-    background: #eeffee;
-}
-
-.f13-email-body-collapse {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 40vw;
-}
-
-.f13-email-body-expand {
-    display: none;
-    cursor: zoom-out
-}
-
-.f13-email-body-collapse {
-    cursor: zoom-in;
-}
-
-.f13-data-loading {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #fffa;
-    z-index: 999;
-}
+.f13_email_smtp_setting { background: #f6f6f6; border: 1px solid #ccc; border-top: 0; border-bottom: 0; }
+.f13_email_smtp_setting_first { border-top: 1px solid #ccc; }
+.f13_email_smtp_setting_last { border-bottom: 1px solid #ccc; }
+.f13_email_smtp_setting th { padding-left: 20px; }
+.f13_email_smtp_setting td { padding-right: 20px; }
+.f13_email_header_btn { float: right; font-size: 24px; text-decoration: none; margin-top: 17px; }
+.f13_email_new:before { content: "\f10f"; font-family: "dashicons"; }
+.f13_email_close:before { font-family: "dashicons"; content: "\f153"; }
+.f13-email-remove-field:before { font-family: "dashicons"; content: "\f153"; float: right; font-size: 20px; position: relative; top: 9px; cursor: pointer; }
+.f13-email-move-field:before { font-family: "dashicons"; content: "\f156"; float: right; font-size: 20px; position: relative; top: 9px; margin-right:20px; cursor: grab; }
+.f13-email-add-field { cursor: pointer; display: block; width: calc(100% - 22px); margin-top: 10px; padding: 10px; background: #f6f6f6; border: 1px solid #ccc; text-align: center; }
+.f13-email-add-field:hover { border: 1px solid #222; }
+.f13-email-remove-field:hover { color: #990000; }
+.f13-email-move-field:hover { color: #000099; }
+.f13-email-form-field { padding-bottom: 10px; border: 1px solid #ccc; margin-bottom: 10px; padding: 10px; background: #fff; }
+.f13-email-add-option { display: block; text-align: center; padding: 10px; margin-top: 10px; border: 1px solid #ccc; background: #fff; cursor: pointer; }
+.f13-email-add-option:hover { border: 1px solid #222; }
+.f13-email-form-fields { border:1px solid #ccc; background: #f6f6f6; padding: 10px 10px 0; }
+.f13-email-settings-container input, .f13-email-settings-container select{ border-radius:0px; padding: 3px; box-sizing: border-box; }
+.f13-email-form-field label { margin-bottom: 5px; display: inline-block; }
+.f13-error, .f13-success { padding: 10px; text-align: center; border: 1px solid #ccc; font-weight: bold; width: 95%; margin: auto; margin-bottom: 10px; }
+.f13-error { background: #ffeeee; }
+.f13-success { background: #eeffee; }
+.f13-email-body-collapse { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 40vw; }
+.f13-email-body-expand { display: none; cursor: zoom-out }
+.f13-email-body-collapse { cursor: zoom-in; }
+.f13-data-loading { position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: #fffa; z-index: 999; }

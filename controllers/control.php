@@ -44,6 +44,7 @@ class Control
 
                 if ($field->type == 'email' && !empty($value) && !is_email($value)) {
                     $errors[$id] = sprintf(__('%s is not a valid email address', 'f13-email'), esc_attr($field->title));
+                    $reply_to = $value;
                 }
                 if (($field->type == 'dropdown' || $field->type == 'radio') && !empty($value)) {
                     $options = explode('|', $field->options);
@@ -69,6 +70,11 @@ class Control
                 }
             }
 
+            $recaptcha = apply_filters('f13_recaptcha_validate', '');
+            if (!empty($recaptcha)) {
+                $errors['recaptcha'] = __('Please complete the captcha verification.');
+            }
+
             if (!empty($errors)) {
                 $msg = '<div class="f13-error" style="text-align: left; padding: 10px 20px;" role="alert" aria-live="notice">';
                     $msg .= __('<strong>Error:</strong> the following fields require attention -', 'f13-email');
@@ -80,6 +86,9 @@ class Control
                 $msg .= '</div>';
             } else {
                 $headers = array('Content-Type: text/html; charset=UTF-8');
+                if (isset($replay_to)) {
+                    $headers[] = 'Reply-To: '.$reply_to;
+                }
                 if (wp_mail( 'jv@f13dev.com', 'Contact from blog', $template, $headers )) {
                     return '<div class="f13-success" role="alert" aria-live="notice">'.trim(esc_attr($data->success)).'</div>';
                 }

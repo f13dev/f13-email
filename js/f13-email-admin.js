@@ -1,9 +1,17 @@
 jQuery(document).ready(function($) {
 
-    $("#f13-email-form-fields").sortable({
-        opacity: 0.7,
-        items: '> .f13-email-form-field',
-        axis: 'y',
+    function set_sortable() {
+        $("#f13-email-form-fields").sortable({
+            opacity: 0.7,
+            items: '> .f13-email-form-field',
+            axis: 'y',
+        });
+    }
+
+    set_sortable();
+
+    $(document).ajaxComplete(function() {
+        set_sortable();
     });
 
     $(document).on('click', '#f13_email_smtp_enable', function() {
