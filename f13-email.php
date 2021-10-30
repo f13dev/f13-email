@@ -70,7 +70,6 @@ class Plugin
     public function admin_enqueue()
     {
         wp_enqueue_style('f13-email-admin', F13_EMAIL_URL.'css/f13-email-admin.css', array(), F13_EMAIL['Version']);
-        //wp_enqueue_script( 'jquery-ui', 'https://code.jquery.com/ui/1.13.0/jquery-ui.js', array('jquery'));
         wp_enqueue_script( 'jquery-ui-sortable' );
         wp_enqueue_script( 'f13-email-admin', F13_EMAIL_URL.'js/f13-email-admin.js', array('jquery', 'jquery-ui-sortable'), F13_EMAIL['Version'] );
         wp_enqueue_script( 'f13-email-ajax', F13_EMAIL_URL.'js/f13-email-ajax.js', array('jquery'), F13_EMAIL['Version'] );
@@ -85,23 +84,3 @@ class Plugin
 
 $p = new Plugin();
 $p->init();
-
-/*
-
-* SMTP PHPMailer override
-* Email log table
-* Contact form builder
-  * Integration with f13-recaptcha hooks
-
-
-Settings
-* SMTP email
-  * Enabel SMTP override
-  * mail server
-  * username
-  * password
-  * port
-
-* Logs
-  * Enable logs
-*/
