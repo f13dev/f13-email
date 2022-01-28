@@ -29,6 +29,8 @@ class Control
 
             $template = '';
 
+            $agree_terms = (int) filter_input($this->request_method, 'agree-terms');
+
             foreach ($data->fields as $field) {
                 $id = 'field-'.$field->sort;
                 $value = esc_attr(trim(filter_input($this->request_method, $id)));
@@ -39,8 +41,6 @@ class Control
                     $msg = '<div class="f13-error">'.__('Please complete the field', 'f13-email').': '.esc_attr($field->title).'</div>';
                     $errors[$id] = sprintf(__('%s is a required field', 'f13-email'), esc_attr($field->title));
                 }
-
-
 
                 if ($field->type == 'email' && !empty($value) && !is_email($value)) {
                     $errors[$id] = sprintf(__('%s is not a valid email address', 'f13-email'), esc_attr($field->title));
@@ -89,7 +89,9 @@ class Control
                 if (isset($replay_to)) {
                     $headers[] = 'Reply-To: '.$reply_to;
                 }
-                if (wp_mail( 'jv@f13dev.com', 'Contact from blog', $template, $headers )) {
+
+                $subject = 'Contact from blog'.($agree_terms ? ' (Spam detected)' : '');
+                if (wp_mail( get_bloginfo('admin_email'), $subject, $template, $headers )) {
                     return '<div class="f13-success" role="alert" aria-live="notice">'.trim(esc_attr($data->success)).'</div>';
                 }
 

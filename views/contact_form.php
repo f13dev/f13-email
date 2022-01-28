@@ -21,7 +21,6 @@ class Contact_form
     public function form()
     {
         $v = '<div class="inner">';
-//            $v .= '<p>'.$this->data->title.'</p>';
             $v .= $this->msg;
 
             $v .= '<form method="post" class="f13-form f13-email-ajax-form" data-action="'.admin_url('admin-ajax.php').'" data-target="f13-contact-form-'.$this->data->id.'">';
@@ -54,19 +53,13 @@ class Contact_form
                         $v .= '</select>';
                     } else
                     if ($field->type == 'checkbox') {
-//                        $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
                         $v .= '<fieldset class="f13-email-checkbox '.$error.'">';
-//                            if (!empty($field->title)) {
                                 $v .= '<legend style="display: none">'.esc_attr($field->title).$required.'</legend>';
-//                            }
-//                        $v .= '<div class="f13-email-checkbox">';
                             $v .= '<input type="checkbox" name="'.$id.'" id="'.$id.'" '.(filter_input(INPUT_POST, $id) == $field->title ? 'checked="checked"' : '').' value="'.$field->title.'" autocomplete="on">';
                             $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
-//                        $v .= '</div>';
                         $v .= '</fieldset>';
                     } else
                     if ($field->type == 'radio') {
-//                        $v .= '<label for="'.$id.'">'.esc_attr($field->title).$required.'</label>';
                         $v .= '<fieldset class="f13-email-checkbox '.$error.'">';
                             if (!empty($field->title)) {
                                 $v .= '<legend>'.esc_attr($field->title).$required.'</legend>';
@@ -82,6 +75,11 @@ class Contact_form
                         $v .= '</fieldset>';
                     }
                 }
+
+                $v .= '<div style="display: none">';
+                    $v .= '<input type="checkbox" name="agree-terms" id="agree-terms" value="1" autocomplete="off">';
+                    $v .= '<label for="agree-terms">'.__('I agree to the terms', 'f13-email').'*</label>';
+                $v .= '</div>';
 
                 $v .= apply_filters('f13_recaptcha_add', '');
 
