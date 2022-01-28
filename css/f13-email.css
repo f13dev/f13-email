@@ -14,3 +14,4 @@
 .f13-success { background: #eeffee; }
 .f13-error { background: #ffeeee; }
 .f13-data-loading { position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: #fffa; z-index: 999; }
+.f13-email-agree-terms { opacity: 0; position: absolute; top: 0; left: -1000px; height: 0; width: 0; z-index: -1; }

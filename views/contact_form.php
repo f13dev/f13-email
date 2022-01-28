@@ -76,7 +76,7 @@ class Contact_form
                     }
                 }
 
-                $v .= '<div style="display: none">';
+                $v .= '<div class="f13-email-agree-terms">';
                     $v .= '<input type="checkbox" name="agree-terms" id="agree-terms" value="1" autocomplete="off">';
                     $v .= '<label for="agree-terms">'.__('I agree to the terms', 'f13-email').'*</label>';
                 $v .= '</div>';

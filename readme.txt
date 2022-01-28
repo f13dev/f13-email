@@ -3,7 +3,7 @@ Contributors: f13dev
 Tags: SMTP, email, forms, contact, form builder, email logs
 Requires at least: 5.0
 Tested up to: 5.8.1
-Stable tag: 1.0.0
+Stable tag: 1.0.2
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -27,3 +27,10 @@ Email logs - Track emails sent via your website
 Add reCaptcha to forms built with F13 Email Form Builder, install [F13 reCaptcha](https://wordpress.org/plugins/f13-recaptcha/)
 
 [Read more about F13 Email](https://f13.dev/wordpress-plugin-email/)
+
+== Changelog ==
+=== 1.0.1 ===
+* Experimental honeypot
+
+=== 1.0.2 ===
+* Improvements to experimental honeypot

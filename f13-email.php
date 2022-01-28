@@ -3,7 +3,7 @@
 Plugin Name: F13 Email
 Plugin URI: https://f13.dev/wordpress-plugin-email/
 Description: Use SMTP for sending emails, store email logs and build custom contact forms
-Version: 1.0.0
+Version: 1.0.2
 Author: f13dev
 Author URI: http://f13.dev
 Text Domain: f13-email
